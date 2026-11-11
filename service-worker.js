@@ -1,4 +1,4 @@
-const CACHE='lexicon-v2-static-8';
+const CACHE='lexicon-v2-static-9';
 const ASSETS=['./index.html','./manifest.webmanifest'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('lexicon-v2-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})())});
